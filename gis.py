@@ -49,3 +49,6 @@ for record, country in zip(shp.records(), shp.geometries()):
     name = record.attributes['ADMIN']
     if name in countries:
         ax.add_geometries([country], crs.PlateCarree(), edgecolor='black', facecolor = facecolor)
+
+plt.title('A Map of West Africa')
+
