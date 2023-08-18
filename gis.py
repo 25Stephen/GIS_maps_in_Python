@@ -40,3 +40,12 @@ ax.add_feature(feature.STATES, linewidth = 0.2)
 # ax.set_yticks([-30,-10,10,30], crs=crs.PlateCarree())
 ax.stock_img()
 ax.gridlines()
+kw = dict(resolution='50m', category='cultural',
+          name='admin_0_countries')
+states_shp = shapereader.natural_earth(**kw)
+shp = shapereader.Reader(states_shp)
+
+for record, country in zip(shp.records(), shp.geometries()):
+    name = record.attributes['ADMIN']
+    if name in countries:
+        ax.add_geometries([country], crs.PlateCarree(), edgecolor='black', facecolor = facecolor)
