@@ -25,3 +25,9 @@ for record, country in zip(shp.records(), shp.geometries()):
                   name, va='center', ha='center', transform=crs.Geodetic(), fontweight='bold',fontsize = '7')
         axes.plot(record.attributes['LABEL_X'],                            
                 record.attributes['LABEL_Y']+ 0.5,'ko', ms=3)#, color='k')
+axes.set_xticks([-20,-10,0,10,20], crs=crs.PlateCarree())
+axes.set_yticks([0,5,10,15,20,25], crs=crs.PlateCarree())
+lon_formatter = LongitudeFormatter(zero_direction_label=True)
+lat_formatter = LatitudeFormatter()
+axes.xaxis.set_major_formatter(lon_formatter)
+axes.yaxis.set_major_formatter(lat_formatter)
