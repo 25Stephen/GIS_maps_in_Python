@@ -15,3 +15,13 @@ countries = ('Benin','Burkina Faso', 'Cameroon','Chad', 'Niger',
              'Ivory Coast', 'Equatorial Guinea', 'The Gambia', 'Ghana', 
              'Guinea', 'Guinea-Bissau', 'Liberia', 'Mali', 'Mauritania', 
              'Nigeria', 'Senegal', 'Sierra Leone', 'Togo')
+for record, country in zip(shp.records(), shp.geometries()):
+    name = record.attributes['ADMIN']
+    if name in countries:
+        facecolor = 'forestgreen'
+        axes.add_geometries([country], crs.PlateCarree(), 
+                          edgecolor='black', facecolor = facecolor, alpha = 0.5)
+        axes.text(record.attributes['LABEL_X'] - .05, record.attributes['LABEL_Y'] - .15,
+                  name, va='center', ha='center', transform=crs.Geodetic(), fontweight='bold',fontsize = '7')
+        axes.plot(record.attributes['LABEL_X'],                            
+                record.attributes['LABEL_Y']+ 0.5,'ko', ms=3)#, color='k')
