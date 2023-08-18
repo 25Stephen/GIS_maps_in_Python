@@ -1,3 +1,4 @@
+from cartopy import crs, feature
 from __future__ import unicode_literals
 from cartopy.io.shapereader import Reader
 from cartopy.feature import ShapelyFeature
