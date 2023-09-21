@@ -1,5 +1,4 @@
 # GIS_maps_in_Python
-## West Africa Map Visualization
 ## West Africa Map
 
  - This Python script generates a map visualization of West Africa using the cartopy library. The map displays the countries of West Africa with different colors and labels, and includes coastlines, borders, and states for reference. Here's a brief overview of what the script does:
