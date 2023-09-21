@@ -51,4 +51,4 @@ for record, country in zip(shp.records(), shp.geometries()):
         ax.add_geometries([country], crs.PlateCarree(), edgecolor='black', facecolor = facecolor)
 
 plt.title('A Map of West Africa')
-
+plt.savefig(west_africa.svg)
